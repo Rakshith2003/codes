@@ -1,0 +1,35 @@
+"""
+implement a function kill_monsters(monster_health[],monster_bonus[],initial_power) 
+that returns the number of monsters defeated.
+
+You can only kill a monster whose health is less than your current power
+After killing a monster, your power increases by the bonus awarded on that monster
+
+
+Ex. kill_monster([6,1,3],[1,1,1],2) -> 2
+
+First with power 2 you can only kill monster #2 and get 1 bonus point
+new power = 2+1
+Next kill monster #3 and get 1 bonus point
+new power = 3+1
+Now you have 4 power but monster #1 has health of 6 so we can not defeat it.
+"""
+def kill_monsters(health, bonus, initial_power):
+  power = initial_power
+  count = 0
+  killed_this_round = True
+  while (
+      killed_this_round
+  ):  #if you didnt kill anyone this round, you wont have enough power for next round and can stop checking
+    killed_this_round = False  #assume you can't kill anyone
+    for i in range(len(health)):
+      if (power >= health[i]):
+        #you can kill this monster
+        count += 1  #monsters killed
+        health[i] = 9999
+        power += bonus[i]
+        killed_this_round = True  #set this to true becuase u gained power and can kill someone next round.
+  return count
+
+
+print(kill_monsters([6, 1, 3], [1, 1, 1], 2))
