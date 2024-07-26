@@ -1,0 +1,6 @@
+"""
+In a sorted array of size n 
+Find how many times was it rotated if a key and its original value is given
+
+ex. find_rotation(array=[6,7,1,2,3,4,5],key=3,original_position=3) -> return 2 (means the sorted array was rotated twice)
+"""
