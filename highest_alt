@@ -1,0 +1,10 @@
+#highest altitude
+def highest_alt(arr):
+  largest=0
+  sum=0
+  for i in arr:
+    sum+=i
+    if sum>largest:
+      largest=sum
+  return largest
+print(highest_alt([6,-3,4,-7]))
